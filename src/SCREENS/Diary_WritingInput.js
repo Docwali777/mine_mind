@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 //Actions - redux
 import {SUBMIT_JOURNAL_ENTRY } from '../REDUX/REDUX_ACTIONS/diaries'
 
-import { ImageBackground, View, Text, StyleSheet, TextInput, Dimensions  } from 'react-native'
+import { ImageBackground, View, Text, StyleSheet, TextInput, Dimensions, AsyncStorage  } from 'react-native'
 
 import { Button, TextInputField } from '../components/ReUsableComponents'
 
@@ -19,6 +19,8 @@ class Diary_WritingInput extends Component{
     }
 
     onSubmitJournalText = (text) =>{
+
+        
 
        renderTabsFunction()
 
@@ -62,8 +64,8 @@ class Diary_WritingInput extends Component{
 
                 />
                 <Button 
-                    disabled={this.state.text.trim() === '' ? true : false}
-                    backgroundStyle={{backgroundColor: this.state.text.length > 1 ? '#732D4A' : 'gray'}} 
+                    disabled={this.state.text.trim() === '' || this.state.title.trim() === '' ? true : false}
+                    backgroundStyle={{backgroundColor: this.state.text.length > 0 && this.state.title.length > 0 ? '#732D4A' : 'gray'}} 
                     onPress={this.onSubmitJournalText}
                     textInlineStyle={{color: 'white', fontWeight: '900'}}
                     title='Submit' />

@@ -3,7 +3,9 @@ const Initial_State = [ ]
 export function diariesReducer(state = Initial_State, action){ 
     switch(action.type){
         case 'ALL_JOURNAL_ENTRIES': 
-            return [...state]
+
+        console.log(action.payload)
+            return [...action.payload  ]
 
         case 'SUBMIT_JOURNAL_ENTRY': 
         return [

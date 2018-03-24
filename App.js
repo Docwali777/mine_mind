@@ -2,12 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 //REDUX
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 
 import reducers  from './src/REDUX/REDUX_REDUCERS/index'
 
-const store = createStore(reducers)
+const store = createStore(reducers, applyMiddleware(thunk))
 console.log('STORE', store.getState())
 //Screns
 import LoginScreen from './src/SCREENS/LoginScreen'

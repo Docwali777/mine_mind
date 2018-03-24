@@ -1,8 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
+import Icon from 'react-native-vector-icons/Ionicons'
 
-const Button  = ({labelStyle, disabled, title, styleText, onPress, icon, backgroundStyle, textInlineStyle}) =>{
+const Button  = ({labelStyle, disabled, title, styleText, onPress, icon, backgroundStyle, textInlineStyle, imageUri}) =>{
+
+const imageURI_or_Text = (imageUri === undefined ? 
+    <Text style={[styles.text , textInlineStyle]} > {icon} </Text>
+    : <Icon name={imageUri} size={30} color='red' /> )
 
     return (
        <TouchableOpacity onPress={onPress} disabled={disabled} >
@@ -10,7 +15,7 @@ const Button  = ({labelStyle, disabled, title, styleText, onPress, icon, backgro
                <View style={[labelStyle]} >
                <Text style={[styles.text , textInlineStyle]} >{title} </Text>
                </View>
-                <Text style={[styles.text , textInlineStyle]} > {icon} </Text>
+                {imageURI_or_Text}
             </View>
        </TouchableOpacity>
     )

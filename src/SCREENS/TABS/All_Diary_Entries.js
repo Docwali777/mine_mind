@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ALL_JOURNAL_ENTRIES, SELECT_ENTRY } from '../../REDUX/REDUX_ACTIONS/diaries'
 
-import { FlatList, View, Text , StyleSheet} from 'react-native'
+import { FlatList, View, Text , StyleSheet, AsyncStorage} from 'react-native'
 
 import Icon from 'react-native-vector-icons/Ionicons'
 

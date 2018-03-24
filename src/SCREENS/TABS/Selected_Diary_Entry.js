@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Text , Image, StyleSheet } from 'react-native'
 
+import { Button } from '../../components/ReUsableComponents'
+
 import Icon from 'react-native-vector-icons/Ionicons'
+
+import Sound from 'react-native-sound';
 
 class Selected_Diary_Entry extends Component{
 constructor(props){
@@ -19,9 +23,35 @@ e.id === 'close_single_diary_entry_view' ?
 
 }
 
+ _playAudioFile = async () => {
+   
+    // These timeouts are a hacky workaround for some issues with react-native-sound.
+    // See https://github.com/zmxv/react-native-sound/issues/89.
+    setTimeout(() => {
+
+        
+      var sound = new Sound(this.props.journalProps.audioFile, '', (error) => {
+        if (error) {
+          console.log('failed to load the sound', error);
+        }
+      });
+
+      setTimeout(() => {
+        sound.play((success) => {
+          if (success) {
+            console.log('successfully finished playing');
+          } else {
+            console.log('playback failed due to audio decoding errors');
+          }
+        });
+      }, 100);
+    }, 100);
+  }
+
     render(){
 
-        const { color, date, emotion, icon, text, title, time, uri} = this.props.journalProps
+        const { color, date, emotion, icon, text, title, time, uri, audioFile} = this.props.journalProps
+  
         return (
             <View style={styles.container} >
                 <View style={styles.dateAndTimeContainer} >
@@ -41,7 +71,7 @@ e.id === 'close_single_diary_entry_view' ?
                 </View>
                     <Text> {text} </Text>
                 </View>
-        
+                {icon === 'ios-mic' ? <Button title={'play'} onPress={this._playAudioFile} imageUri='ios-play' /> : null}
             </View>
         )
     }
