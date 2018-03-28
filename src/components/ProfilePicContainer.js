@@ -4,8 +4,6 @@ import { Image, Dimensions, StyleSheet, Text, View, TouchableOpacity } from 'rea
 import Icon from 'react-native-vector-icons/Ionicons'
 import ImagePicker from 'react-native-image-picker'
 
-
-
 import ProfileInfoDemographics from './ProfileInfoDemographics'
 
 class  ProfilePicContainer extends Component{
@@ -13,13 +11,18 @@ class  ProfilePicContainer extends Component{
         image: false
     }
     addProfilePic = () =>{
-            ImagePicker.showImagePicker({title: 'Choose Photo for Profile'}, res =>{
+            ImagePicker.showImagePicker(
+                {title: 'Choose Photo for Profile',
+                cameraType: 'front',
+                takePhotoButtonTitle: 'Take a Profile Picture',
+                chooseFromLibraryButtonTitle: 'Choose a Profile Picture'
+            }, res =>{
                 if(res.didCancel){
-                    alert('Photo option cencelled')
+                    return  console.log('Photo option cancelled')
                 } else if (res.error){
-                    alert(res.error)
+                    return console.log(res.error)
                 } else {
-                    this.setState({
+                    return  this.setState({
                         image: { uri: res.uri}
                     })
                 }

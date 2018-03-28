@@ -6,26 +6,18 @@ import ProfilePicContainer from '../../components/ProfilePicContainer'
 
 class Profile extends Component {
 
-async deleteStorage (){
-        try {
-          await AsyncStorage.removeItem('journalStorage')
-          console.log('it worked')
-           
-        } catch(e){
-            console.log(e)
-        }
-
-    }
-
     render(){
         return(
             <View style={styles.container} >
-                <Button title='delete storage' onPress={this.deleteStorage} />
-                <View style={styles.cardContainer} >
-                <ProfilePicContainer />
-              
-                </View>
             
+       
+                <View style={styles.cardContainer} >
+                
+                <ProfilePicContainer />
+                
+                </View>
+
+               
             </View>
         )
     }

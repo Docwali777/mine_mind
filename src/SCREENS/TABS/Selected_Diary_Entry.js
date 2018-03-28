@@ -8,12 +8,16 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 import Sound from 'react-native-sound';
 
+import VideoPlayer from 'react-native-video-player'
+
 class Selected_Diary_Entry extends Component{
 constructor(props){
     super(props)
     
     this.props.navigator.setOnNavigatorEvent(this.closeSelectedModal)
 }
+
+
 
 
 closeSelectedModal = (e) =>{
@@ -50,8 +54,7 @@ e.id === 'close_single_diary_entry_view' ?
 
     render(){
 
-        const { color, date, emotion, icon, text, title, time, uri, audioFile} = this.props.journalProps
-  
+        const { color, date, emotion, icon, text, title, time, uri, audioFile, videoUrl} = this.props.journalProps
         return (
             <View style={styles.container} >
                 <View style={styles.dateAndTimeContainer} >
@@ -65,13 +68,45 @@ e.id === 'close_single_diary_entry_view' ?
                 </View>
                 
                 
+              {icon === 'ios-clipboard' ? (
                 <View style={styles.journalContainer} >
                 <View style={styles.jounalTitleContinaer} >
                 <Text style={styles.journalTitle} >Journay Entry</Text>
                 </View>
                     <Text> {text} </Text>
                 </View>
+              ) : null
+              }
+
+              
                 {icon === 'ios-mic' ? <Button title={'play'} onPress={this._playAudioFile} imageUri='ios-play' /> : null}
+              
+                {/* {icon === 'ios-videocam' ? <Button title='Play Video' onPress={this.playVideo} imageUri='ios-play' />  : null} */}
+
+                {videoUrl !== undefined ? (
+                   <View style={styles.videoContainer}>
+                   <VideoPlayer
+                        // videoWidth={'100%'}
+                        // videoHeight={'100%'}
+                        ref={r => this.player = r}
+                        video={videoUrl}
+                        loop={false}
+                        pauseOnPress
+                        disableFullscreen
+
+                    />
+                   {/* <Button title='Stop' onPress={() =>this.player.stop()} />
+                   <Button
+          onPress={() => this.player.pause()}
+          title="Pause"
+        />
+        <Button
+          onPress={() => this.player.resume()}
+          title="Resume"
+        /> */}
+                   </View>
+                ) : null}
+
             </View>
         )
     }
@@ -90,11 +125,13 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 20, 
         height: 50,
-        justifyContent: 'center'
+        justifyContent: 'center', 
+        flex: 1
     },
     imageAndEmotionsContainer: {
         marginTop: 20, 
         alignItems: 'center',
+        flex: 1
     },
     image: {
         width: 100, 
@@ -107,7 +144,8 @@ const styles = StyleSheet.create({
     },
     journalContainer: {
         marginTop: 15, 
-        alignItems: 'center'
+        alignItems: 'center', 
+        flex: 3
     }, 
     jounalTitleContinaer: {
         margin: 20, 
@@ -117,6 +155,11 @@ const styles = StyleSheet.create({
     journalTitle: {
         fontSize: 17, 
 
+    }, 
+    videoContainer: {
+        width: '100%',
+        height: '100%', 
+        flex: 3
     }
 })
 

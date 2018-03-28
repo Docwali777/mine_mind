@@ -11,20 +11,27 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "node node_modules/jest/bin/jest.js"
+    "test": "node node_modules/jest/bin/jest.js",
+    "postinstall": "rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json"
   },
   "jest": {
     "preset": "react-native"
   },
   "dependencies": {
+    "firebase": "^4.12.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
     "react-native-audio": "^4.0.0",
+    "react-native-camera": "^1.0.2",
+    "react-native-fbsdk": "^0.7.0",
+    "react-native-firebase": "^3.3.1",
     "react-native-image-picker": "^0.26.7",
     "react-native-navigation": "^1.1.409",
     "react-native-sound": "^0.10.9",
     "react-native-sound-recorder": "^1.1.1",
     "react-native-vector-icons": "^4.5.0",
+    "react-native-video": "^2.0.0",
+    "react-native-video-player": "^0.9.1",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		0JmeJfvbNMGgflTDbszL7FN3/Xc=
+		ndmVoJ05JQOT527FiAmAEfg/0ig=
 		</data>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<data>
@@ -51,7 +51,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		AyjwARona/1LNcjad+MCMAv7rAM=
+		Sawao54PUeDN4AS4TBS1pxiAQFI=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -63,7 +63,7 @@
 		</data>
 		<key>PlugIns/minemindTests.xctest.dSYM/Contents/Info.plist</key>
 		<data>
-		6h+RMxCSUBeW7hu6vL+DSGQoIbE=
+		GLAEVgq61cM/WWHgUnacN0uTif0=
 		</data>
 		<key>PlugIns/minemindTests.xctest.dSYM/Contents/Resources/DWARF/minemindTests</key>
 		<data>
@@ -71,15 +71,31 @@
 		</data>
 		<key>PlugIns/minemindTests.xctest/Info.plist</key>
 		<data>
-		ZzpXEf1OX2UE6WYskk1ZKnMb0A8=
+		8CYMFDvrwR+iKUh0IOoIv+a1tmA=
+		</data>
+		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeDirectory</key>
+		<data>
+		EE85q6pIcWYsX9GdotrkyFAtews=
+		</data>
+		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeRequirements</key>
+		<data>
+		OnX22wWFKRSOFN1+obRynMCeyXM=
+		</data>
+		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeRequirements-1</key>
+		<data>
+		/yUUS4vmFmFBpHhA+5Sl/sYwYhU=
 		</data>
 		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
-		jftg7LjmBObsCAQhLGmwB8VXyhE=
+		i7z63wNelTJ8Kdxz/2cq749D7v8=
+		</data>
+		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeSignature</key>
+		<data>
+		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
 		</data>
 		<key>PlugIns/minemindTests.xctest/minemindTests</key>
 		<data>
-		m5W8XF/HrNN2gJJ1cB+fjl1T4o4=
+		bYsl4bG1//DPjaGOynohgugElLk=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -88,11 +104,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0JmeJfvbNMGgflTDbszL7FN3/Xc=
+			ndmVoJ05JQOT527FiAmAEfg/0ig=
 			</data>
 			<key>hash2</key>
 			<data>
-			uUDRj9niAHwLHn3C4DE1SsuHLAiOqdwj/UNGcvCmmA8=
+			6ErTuTXx8SGkAY7LJSrEk9CoJ4OyD5EJAsUUAiCtD8g=
 			</data>
 		</dict>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
@@ -211,11 +227,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6h+RMxCSUBeW7hu6vL+DSGQoIbE=
+			GLAEVgq61cM/WWHgUnacN0uTif0=
 			</data>
 			<key>hash2</key>
 			<data>
-			2xzxdG5TIw0OvFZxjII6SNDCsZbeKzIPAYfe1WEDMCc=
+			nyuEV/qiEfDZgRPz5YDvJuVQi3aIhRxBs5taDW9K/CY=
 			</data>
 		</dict>
 		<key>PlugIns/minemindTests.xctest.dSYM/Contents/Resources/DWARF/minemindTests</key>
@@ -233,33 +249,77 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZzpXEf1OX2UE6WYskk1ZKnMb0A8=
+			8CYMFDvrwR+iKUh0IOoIv+a1tmA=
 			</data>
 			<key>hash2</key>
 			<data>
-			1HOFJwiHQ7FzQt/xkVTn1rrAu8hrNUfXQZ2X08JlfQQ=
+			udraWZhG1AKVt55YEdv09quDghLk1vHnUlnd0n978LY=
+			</data>
+		</dict>
+		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeDirectory</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EE85q6pIcWYsX9GdotrkyFAtews=
+			</data>
+			<key>hash2</key>
+			<data>
+			3tK9XHMXDOaef2AtwASY2m13/LX2zTwiHZluYCUiK3o=
+			</data>
+		</dict>
+		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeRequirements</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OnX22wWFKRSOFN1+obRynMCeyXM=
+			</data>
+			<key>hash2</key>
+			<data>
+			mHkgkE6rZQ51eIwFSqCwUk5qgL/HGqMt+NI3phdD+YY=
+			</data>
+		</dict>
+		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeRequirements-1</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/yUUS4vmFmFBpHhA+5Sl/sYwYhU=
+			</data>
+			<key>hash2</key>
+			<data>
+			2PT2BD0x4ouR3FGE0LLItR94ddgz5brtPH2QQLPc6XY=
 			</data>
 		</dict>
 		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jftg7LjmBObsCAQhLGmwB8VXyhE=
+			i7z63wNelTJ8Kdxz/2cq749D7v8=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dhe//8+u9ZrV4qTdKbdb3Dl2NzBZBSKzUOUzN8T4zIg=
+			7uLCf/wzVucSDFN7bm7ZlRh1btT0PGvnpJjbvO5RbiA=
+			</data>
+		</dict>
+		<key>PlugIns/minemindTests.xctest/_CodeSignature/CodeSignature</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+			</data>
+			<key>hash2</key>
+			<data>
+			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 			</data>
 		</dict>
 		<key>PlugIns/minemindTests.xctest/minemindTests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m5W8XF/HrNN2gJJ1cB+fjl1T4o4=
+			bYsl4bG1//DPjaGOynohgugElLk=
 			</data>
 			<key>hash2</key>
 			<data>
-			an/cLFvcj6fmqLjOM5P6WT1xghQfNADZJNEKuD7sHXA=
+			NaLpb8XVKD+0EoEY1wdLyPF72DdOSjJkks2kBovW6EQ=
 			</data>
 		</dict>
 	</dict>

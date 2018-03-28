@@ -9,12 +9,13 @@ import {
   TouchableHighlight,
   Platform,
   PermissionsAndroid,
+  Dimensions
 } from 'react-native';
 
 import Sound from 'react-native-sound';
 import { AudioRecorder, AudioUtils } from 'react-native-audio';
 
-import { Button, TextInputField } from '../components/ReUsableComponents'
+import { Button, TextInputField, LabelForTextInput } from '../components/ReUsableComponents'
 import renderTabsFunction from '../SCREENS/TABS/FunctionToRenderTabs'
 
 //redux actions
@@ -32,7 +33,8 @@ class Diary_AudioInput extends Component{
         audioPath: AudioUtils.DocumentDirectoryPath + '/test.aac',
         hasPermission: undefined,
         audioFile: '', 
-        title: ''
+        title: '', 
+        important: false
 
       };
   
@@ -203,7 +205,7 @@ class Diary_AudioInput extends Component{
         try {
           const filePath = await AudioRecorder.startRecording();
         } catch (error) {
-          console.error(error);
+          return;
         }
       }
   
@@ -225,7 +227,9 @@ class Diary_AudioInput extends Component{
             color: '#FFA100', 
             emotion: this.props.text,
             uri: this.props.uri, 
-            key: Math.random()
+            key: Math.random(),
+            visble: true, 
+            important: this.state.important
         })
       }
   
@@ -235,14 +239,23 @@ class Diary_AudioInput extends Component{
         return (
           <View style={styles.container}>
 
-             <TextInputField
+
+            <View style={styles.labelAndTextInputContainer} >
+              <View style={styles.label} >
+              <LabelForTextInput textStyle={{color: 'white', fontWeight: '900'}}  >Title</LabelForTextInput>
+              </View>
+
+              <View style={styles.textInput} >
+                <TextInputField
                     placeholder={'Enter title / theme'}
                     value={this.state.title}
                     onChangeText={title => this.setState({title})}
-                    style={{backgroundColor: 'white', width: 200, height: 40}}
-                    label={'Title'}
-                    labelStyle={{backgroundColor: 'white'}}
+                    placeholderTextColor= 'black'
+                    style={{marginLeft: 10}}
                 />
+              </View>
+           
+            </View>
 
             <View style={styles.controls}>
               {this._renderButton("RECORD", () => {this._record()}, this.state.recording )}
@@ -251,10 +264,20 @@ class Diary_AudioInput extends Component{
               {/* {this._renderButton("PAUSE", () => {this._pause()} )} */}
               {this._renderPauseButton(() => {this.state.paused ? this._resume() : this._pause()})}
               <Text style={styles.progressText}>{this.state.currentTime}s</Text>
-
-               <Button title={'Submit'} onPress={this.submitVoiceRecordingHeandler} />
             </View>
-
+          <View style={styles.buttonContainer} >
+          
+          <Button 
+              disabled={this.state.title.length > 0 && this.state.audioFile !== '' ?
+                  false : 
+                  true } 
+                
+                  backgroundStyle={{backgroundColor: this.state.title.length > 0 && this.state.audioFile !== '' ?
+                   '#732D4A' : 
+                   'gray'}} 
+                    
+              title={'Submit'} onPress={this.submitVoiceRecordingHeandler} />
+          </View>
            
           </View>
         );
@@ -265,11 +288,12 @@ class Diary_AudioInput extends Component{
       container: {
         flex: 1,
         backgroundColor: "#2b608a",
+        alignItems: 'center'
       },
       controls: {
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
+        flex: 5,
       },
       progressText: {
         paddingTop: 50,
@@ -289,6 +313,42 @@ class Diary_AudioInput extends Component{
       activeButtonText: {
         fontSize: 20,
         color: "#B81F00"
+      }, 
+      labelAndTextInputContainer: {
+        flexDirection: 'row', 
+        flexDirection: 'row',
+        alignItems: 'center', 
+        borderColor: 'black',
+        borderWidth: 3,
+        borderRadius: 10,
+        flex: 0.5,
+        marginTop: 10,
+        width: Dimensions.get('window').width * 0.9
+      }, 
+      label: {
+      alignItems: 'center',
+            borderRightColor: 'white',
+            borderRightWidth: 1,
+            flex: 1, 
+            backgroundColor: '#9E9E9E',
+            height: '100%',
+            borderTopLeftRadius: 10,
+            borderBottomLeftRadius: 10,
+            justifyContent: 'center', 
+
+      }, 
+      textInput: {
+        flex: 3, 
+        justifyContent: 'center', 
+        backgroundColor: 'white',
+        width: '100%',
+        height: '100%',
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
+      },
+      buttonContainer: {
+        flex: 1,
+        alignItems: 'center'
       }
   
     });

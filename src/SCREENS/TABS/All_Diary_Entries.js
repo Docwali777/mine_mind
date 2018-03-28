@@ -3,12 +3,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ALL_JOURNAL_ENTRIES, SELECT_ENTRY } from '../../REDUX/REDUX_ACTIONS/diaries'
 
+
+
 import { FlatList, View, Text , StyleSheet, AsyncStorage} from 'react-native'
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import ProfilePicContainer from '../../components/ProfilePicContainer'
 import ListViewOfJournalEntries from '../../components/ListViewOfJournalEntries'
+
+import {Button } from '../../components/ReUsableComponents'
 
 class All_Diary_Entries extends Component {
 
@@ -43,12 +47,20 @@ const journalProps = this.props.diaries.find((entry, i) =>{
   })
 }
 
+clearAllDiaries = async() =>{
+    try {
+
+    } catch(e){  return alert()}
+}
+
     render(){
 
 
         return(
-            <FlatList 
-            style={styles.container} 
+     
+       
+       <FlatList 
+            style={styles.container}
             data={this.props.diaries}
             renderItem={({item}) =>{
                 let entry = item

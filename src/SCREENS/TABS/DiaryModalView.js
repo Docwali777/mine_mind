@@ -4,9 +4,6 @@ import { View, Text, StyleSheet , Image } from 'react-native'
 
 import { Button } from '../../components/ReUsableComponents'
 import { DiariesObject } from '../../EMOJIS'
-//
-import SoundRecorder from 'react-native-sound-recorder';
-
 
 
 
