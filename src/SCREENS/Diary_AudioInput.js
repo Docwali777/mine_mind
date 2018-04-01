@@ -63,6 +63,7 @@ class Diary_AudioInput extends Component{
           AudioRecorder.onFinished = (data) => {
             // Android callback comes in the form of a promise instead.
             if (Platform.OS === 'ios') {
+              alert(JSON.stringify(data))
                 this.setState({audioFile: data.audioFileURL})
               this._finishRecording(data.status === "OK", data.audioFileURL);
             }

@@ -41,6 +41,7 @@ const options = {
            return console.lof(response.error)
         }
         else{
+         
             let videoUrl = { uri: res.uri}
             this.setState({videoUrl})
         }

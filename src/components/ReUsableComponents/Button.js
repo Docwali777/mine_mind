@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         height: 40,
         width: 200,
         margin: 10,
-        backgroundColor: '#60FEF7', //bacgroundColor
+        backgroundColor: '#00FFFF', //bacgroundColor
         // borderColor: '#3A76FB', // if no backgroudn Color - can use just border
         // borderWidth: 5,         // if no backgroudn Color - can use just border
         alignItems: 'center',

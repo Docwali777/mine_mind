@@ -1,28 +1,27 @@
 import React, { Component} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, AsyncStorage } from 'react-native';
 
+import { LabelForTextInput } from '../components/ReUsableComponents'
+
 import firebase from 'firebase'
 
 import LoginInForm from '../components/LoginForm'
+import RegistrationForm from '../components/RegistrationForm'
 
+import { firebaseConfig } from '../../keys'
 
 class LoginScreen extends Component{
 state = {
-  imageUrl: '',
-  videoUrl: ''
+  registerNewUSer: false
 }
+
+
+
   componentWillMount(){
+// this.clear()
 
-
-    var config = {
-        apiKey: "AIzaSyAKQCXTH98zNEx9iob5oEhSijlgprYe168",
-        authDomain: "dgheart-46a42.firebaseapp.com",
-        databaseURL: "https://dgheart-46a42.firebaseio.com",
-        projectId: "dgheart-46a42",
-        storageBucket: "dgheart-46a42.appspot.com",
-        messagingSenderId: "618550476162"
-      };
-      firebase.initializeApp(config);
+   
+      firebase.initializeApp(firebaseConfig);
 }
 
 clear = async() =>{
@@ -32,12 +31,20 @@ clear = async() =>{
 }
 
 
-
+registerNewUserHandler = () =>{
+  this.setState({
+    registerNewUSer: !this.state.registerNewUSer
+  })
+}
 
 render(){
   return (
     <View style={styles.container}>
-   <LoginInForm /> 
+     
+   {this.state.registerNewUSer !== true ?
+    <LoginInForm registerNewUSer={this.registerNewUserHandler } /> :
+    <RegistrationForm registerNewUSer={this.registerNewUserHandler} />
+     }
 
   </View>
   )

@@ -95,15 +95,7 @@ e.id === 'close_single_diary_entry_view' ?
                         disableFullscreen
 
                     />
-                   {/* <Button title='Stop' onPress={() =>this.player.stop()} />
-                   <Button
-          onPress={() => this.player.pause()}
-          title="Pause"
-        />
-        <Button
-          onPress={() => this.player.resume()}
-          title="Resume"
-        /> */}
+             
                    </View>
                 ) : null}
 

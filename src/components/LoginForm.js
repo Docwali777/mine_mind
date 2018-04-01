@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import firebase from 'firebase'
-
+import axios from 'axios'
+//redux
+import { connect} from 'react-redux'
+import { USER_LOGIN } from '../REDUX/REDUX_ACTIONS/user'
 
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
@@ -14,7 +17,7 @@ import rendertabsFunction from '../SCREENS/TABS/FunctionToRenderTabs'
 class LoginForm extends Component {
 
     state = {
-        email: '',
+        username: '',
         password: '',
         error: ''
     }
@@ -26,23 +29,24 @@ class LoginForm extends Component {
 
    
 
-registerUser = async() =>{
-    // const { email, password } = this.state
-
-    // try{
-    //     const user = await firebase.auth().createUserWithEmailAndPassword(email, password)
-    //  console.log(user)
-     return   rendertabsFunction()
-    // }catch(e){
-    //    return this.setState({error: e.message})
-    // }
+registerUser = () =>{
+    const { username, password} = this.state
+  this.props.USER_LOGIN({
+      username, password
+  })
    
 
 }
     render(){
+        console.log(this.props)
         return(
             <View style={styles.container}>
-             
+               <LabelForTextInput>Login</LabelForTextInput>
+               <Button 
+                    title='Register New User'
+                    backgroundStyle={{backgroundColor: '#FFD500', height: 30}}
+                    onPress={this.props.registerNewUSer}
+                />
              <View style={styles.labelAndInputContainer} >
             
             <View style={styles.label} >
@@ -51,12 +55,13 @@ registerUser = async() =>{
                 
                 <View style={styles.textInput} > 
                 <TextInputField
-                    placeholder='Email@email.com'
+                    placeholder='Email@username.com'
                     label='Email'
-                    value={this.state.email}
-                    onChangeText={email => this.setState({email}) }
+                    value={this.state.username}
+                    onChangeText={username => this.setState({username}) }
                     multiline
                     allowFontScaling
+                    autoCapitalize={'none'}
                 />
                 </View>
              </View>
@@ -77,7 +82,7 @@ registerUser = async() =>{
 
            </View>
       <Text>  {this.state.error}</Text>
-                <Button title='Login' onPress={this.registerUser} />
+                <Button title='Submit' textInlineStyle={{fontWeight: '700'}} onPress={this.registerUser} />
 
             </View>
         )
@@ -116,4 +121,12 @@ const styles = StyleSheet.create({
     }
 })
 
-export default LoginForm
+const mapStateToProps = state =>{
+    return {
+        user: state.user
+    }
+}
+
+export default connect(null, {
+    USER_LOGIN
+})(LoginForm)
